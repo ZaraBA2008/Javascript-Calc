@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Javascript Calculator</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			background: #12c2e9;  /* fallback for old browsers */
+			background: -webkit-linear-gradient(to right, #f64f59, #c471ed, #12c2e9);  /* Chrome 10-25, Safari 5.1-6 */
+			background: linear-gradient(to left, #f64f59, #c471ed, #12c2e9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+		}
+		.title{
+			text-align: center;
+			color: #003985;
+		}
+		.title h1{
+			padding: 10px;
+			font-size: 50px;
+		}
+		.title p{
+			font-size: 20px;
+			font-weight: 600;
+		}
+		input[type = "button"]{
+			width: 100%;
+			padding: 34px;
+			border: none;
+			background: #ff4d85;
+		}
+		table{
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 14px 10px 5px;
+			margin-top: 38px;
+		}
+		input[type = "button"]:hover{
+			background: #e899b2;
+		}
+		input[type = "text"]{
+			border: none;
+			width: 100%;
+			height: 15vh;
+			background: #ffbdd2;
+		}
+		#c{
+			background: #ff4d85;
+		}
+		#c:hover{
+			background: #e899b2;
+		}
+		td{
+			border: 1px solid #af22f5;
+		}
+	</style>
+</head>
+<body>
+	<div class="title">
+		<h1>A Simple Javascript Calculator</h1>
+		<p>(Note: in computer language multiplication is "*" and division is "/")</p>
+	</div>
+	<table>
+		<tr>
+			<td id="c"><input type="button" value="Clear All" onclick="clr()"/></td>
+			<td colspan="3"><input type="text" id="dispscreen"/></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="+" onclick="dis('+')"/> </td>
+			<td><input type="button" value="1" onclick="dis(1)"/></td>
+			<td><input type="button" value="2" onclick="dis(2)"/></td>
+			<td><input type="button" value="3" onclick="dis(3)"/></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="-" onclick="dis('-')"/> </td>
+			<td><input type="button" value="4" onclick="dis(4)"/></td>
+			<td><input type="button" value="5" onclick="dis(5)"/></td>
+			<td><input type="button" value="6" onclick="dis(6)"/></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="x" onclick="dis('*')"/></td>
+			<td><input type="button" value="7" onclick="dis(7)"/></td>
+			<td><input type="button" value="8" onclick="dis(8)"/></td>
+			<td><input type="button" value="9" onclick="dis(9)"/></td>
+		</tr>
+		<tr>
+			<td><input type="button" value="÷" onclick="dis('/')"/></td>
+			<td><input type="button" value="." onclick="dis('.')"/></td>
+			<td><input type="button" value="0" onclick="dis(0)"/></td>
+			<td><input type="button" value="=" onclick="solve()"/></td>
+		</tr>	
+	</table>
+<script>
+	function dis(val){
+		document.getElementById("dispscreen").value+=val;
+	}
+	function solve(){
+		let x = document.getElementById("dispscreen").value;
+		let y = eval(x);
+		document.getElementById("dispscreen").value=y;
+	}
+	function clr(){
+		document.getElementById('dispscreen').value="";
+	}
+</script>
+</body>
+</html>
